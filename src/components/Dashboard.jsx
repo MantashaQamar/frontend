@@ -1,4 +1,3 @@
-
 import {
   Box,
   Typography,
@@ -59,7 +58,7 @@ export default function Dashboard() {
       <Box sx={{ p: 3 }}>
         <Grid container spacing={3}>
           {workouts.map((workout) => (
-            <Grid item xs={12} sm={6} md={4} key={workout.id}>
+            <Grid item xs={12} sm={6} key={workout.id}>
               <WorkoutCard>
                 <CardContent>
                   <Box
