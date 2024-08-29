@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import SignUpForm from './components/SignUpForm';
-
+import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import '@fontsource/montserrat/400.css';
@@ -32,6 +32,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<SignUpForm />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
     </ThemeProvider>
