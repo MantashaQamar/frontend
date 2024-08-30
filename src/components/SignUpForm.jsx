@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
 const validationSchema = z.object({
   name: z
     .string()
-    .min(1, 'Name is required')
+    .min(2, 'Name is required')
     .max(20, 'Name must be 1-20 characters long')
     .regex(/^[a-zA-Z\s]*$/, 'Name can only contain letters and spaces'),
   email: z.string().email('Invalid email address'),
