@@ -31,7 +31,9 @@ const validationSchema = z.object({
     .regex(/(?=.*[a-z])/, 'Password must include lowercase letter')
     .regex(/(?=.*[A-Z])/, 'Password must include uppercase letter')
     .regex(/(?=.*\d)/, 'Password must include a number')
-    .regex(/(?=.[@$!%?&])/, 'Password must include a special character'),
+    .regex(/(?=.*[@$!%?&])/, 'Password must include a special character'),
+  target: z.string().nonempty('Please select a target'),
+  preferableActivity: z.string().nonempty('Please select a preferable activity'),
 });
 
 function SignUpForm() {
@@ -65,6 +67,8 @@ function SignUpForm() {
         name,
         email,
         password,
+        target,
+        preferableActivity: activity,
       });
       setErrors({});
       return true;
@@ -86,7 +90,7 @@ function SignUpForm() {
     }
 
     const apiRegister =
-      'https://hrzokqb538.execute-api.eu-west-2.amazonaws.com/api/signup';
+      'https://xb0h50540b.execute-api.eu-west-2.amazonaws.com/api/signup';
 
     const userData = {
       fullName: name,
@@ -184,6 +188,8 @@ function SignUpForm() {
                   select
                   value={target}
                   onChange={(e) => setTarget(e.target.value)}
+                  error={!!errors.target} // Display target error
+                  helperText={errors.target}
                 >
                   {targets.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
@@ -199,6 +205,8 @@ function SignUpForm() {
                   select
                   value={activity}
                   onChange={(e) => setActivity(e.target.value)}
+                  error={!!errors.preferableActivity} // Display activity error
+                  helperText={errors.preferableActivity}
                 >
                   {activities.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
@@ -278,8 +286,7 @@ function SignUpForm() {
               “The path to triumph is paved with{' '}
               <span style={{ color: '#A1F522' }}>strength to train hard</span>{' '}
               and the perseverance to{' '}
-              <span style={{ color: '#A1F522' }}> rise each time you fall</span>
-              .”
+              <span style={{ color: '#A1F522' }}> rise to the challenge</span>.”
             </Typography>
           </Box>
         </Grid>

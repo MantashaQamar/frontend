@@ -36,7 +36,7 @@ import {
     const handleLogin = async (values) => {
       navigateTo('/');
       const baseURL =
-        'https://94jvu1gf8c.execute-api.eu-west-2.amazonaws.com/api/signin';
+        'https://xb0h50540b.execute-api.eu-west-2.amazonaws.com/api/signin';
       try {
         const response = await axios.post(baseURL, { ...values });
         console.log(response);
