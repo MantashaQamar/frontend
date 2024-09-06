@@ -13,7 +13,7 @@ import {
   Notifications as NotificationsIcon,
   AccountCircle as AccountCircleIcon,
 } from '@mui/icons-material';
-import icon from '../assets/icon.svg';
+import icon from '../assets/Icon.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
